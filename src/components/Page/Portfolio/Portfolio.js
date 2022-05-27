@@ -115,7 +115,43 @@ const Portfolio = () => {
             ></progress>
           </div>
         </div>
+        <div>
+          <h1 className="text-center font-bold pb-9 text-3xl my-8">
+            Education
+          </h1>
+          <div>
+            <div class="overflow-x-auto">
+              <table class="table w-full">
+                <thead>
+                  <tr>
+                    <th>Qualification</th>
+                    <th>Inistitue </th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>S.S.C</td>
+                    <td>Togra Kamil Madrasah</td>
+                    <td>4.33</td>
+                  </tr>
 
+                  <tr class="active">
+                    <td>H.S.C</td>
+                    <td>Tamirul millat Kamil Madrasah</td>
+                    <td>4.69</td>
+                  </tr>
+
+                  <tr>
+                    <td>Hon's</td>
+                    <td>Dhaka University</td>
+                    <td>2nd Year Runing</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
         <div className="my-12">
           <h1 className="text-center font-bold pb-9 text-3xl">My Projects</h1>
           <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -129,7 +165,7 @@ const Portfolio = () => {
               <div class="card-body">
                 <div class="card-actions justify-center">
                   <a target="_blank" href="https://doccure-244.netlify.app/">
-                    <button class="btn btn-primary">Live Site</button>
+                    <button class="btn btn-primary">Live Preview</button>
                   </a>
                 </div>
               </div>
@@ -145,8 +181,11 @@ const Portfolio = () => {
                 </figure>
                 <div class="card-body">
                   <div class="card-actions justify-center">
-                    <a href="https://assignment-11-71417.web.app/" target="_blank">
-                      <button class="btn btn-primary">Live Site</button>
+                    <a
+                      href="https://assignment-11-71417.web.app/"
+                      target="_blank"
+                    >
+                      <button class="btn btn-primary">Live Preview</button>
                     </a>
                   </div>
                 </div>
@@ -166,14 +205,14 @@ const Portfolio = () => {
                     href="https://gadget-hub-hero.netlify.app/"
                     target="_blank"
                   >
-                    <button class="btn btn-primary">Live Site</button>
+                    <button class="btn btn-primary">Live Preview</button>
                   </a>
                 </div>
               </div>
             </div>
           </div>
-            </div>
-            <Footer></Footer>
+        </div>
+        <Footer></Footer>
       </div>
     );
 };
