@@ -23,7 +23,7 @@ const Footer = () => {
           >
             <div>
               <img
-                className="rounded rounded-2xl mb-5"
+                className=" rounded-2xl mb-5"
                 src={
                   "https://www.simpleimageresizer.com/_uploads/photos/3eaf59d2/download_68_1_180x68.png"
                 }

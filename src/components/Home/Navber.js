@@ -50,7 +50,7 @@ const Navber = () => {
                 {menuItens}
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">Car Skeleton</a>
+            <a className="btn btn-ghost normal-case text-xl">Car Skeleton </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">{menuItens}</ul>
