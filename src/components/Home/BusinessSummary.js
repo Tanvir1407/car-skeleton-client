@@ -22,7 +22,7 @@ const BusinessSummary = () => {
           </div>
           <div className="border-2 m-4 rounded-md px-6 py-3">
             <FontAwesomeIcon className="text-8xl p-4" icon={faThumbsUp} />
-            <h1 className="text-center text-4xl">570</h1>
+            <h1 className="text-center text-4xl">570+</h1>
             <h1 className="text-2xl font-bold">Feedbacks</h1>
           </div>
         </div>
