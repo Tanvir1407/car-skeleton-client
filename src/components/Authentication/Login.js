@@ -31,7 +31,11 @@ const LogIn = () => {
   }, [user, gUser, from, navigate]);
 
   if (loading || gLoading) {
-    return <button className="btn loading"></button>;
+    return (
+      <div className=" md:mt-60">
+        <div className="w-20 mx-auto text-3xl font-bold ">Loading...</div>
+      </div>
+    );
   }
   if (error || gError) {
     signInError = (

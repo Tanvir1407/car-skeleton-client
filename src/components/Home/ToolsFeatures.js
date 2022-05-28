@@ -5,12 +5,12 @@ const ToolsFeatures = () => {
     const [parts, setParts] = useState([]);
 
     useEffect(() => {
-        fetch('toolsData.json')
-            .then(res => res.json())
-            .then(data => setParts(data))
+        fetch("http://localhost:5500/parts")
+          .then((res) => res.json())
+          .then((data) => setParts(data));
     },[])
     return (
-      <div className="bg-gray-100 md:px-12">
+      <div className="bg-gray-100 py-8 md:px-12">
         <h1 className="text-center text-3xl py-16 underline underline-offset-4">
           Parts Features
         </h1>

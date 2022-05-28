@@ -8,7 +8,11 @@ const RequireAuth = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <p>Loading....</p>;
+    return (
+      <div className=" md:mt-60">
+        <div className="w-20 mx-auto text-3xl font-bold ">Loading...</div>
+      </div>
+    );
   }
 
   if (!user) {

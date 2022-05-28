@@ -1,9 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PartsCard = ({ part }) => {
-    console.log(part)
-    const { name, picture, description, minimumOrder, quantity, price } = part;
-    console.log(name)
+  const navigate = useNavigate();
+    const {_id, name, picture, description, minimumOrder, quantity, price } = part;
+  const handleToPercease = (id) => {
+    navigate(`/purchase/${id}`);
+    console.log(id);
+    }
     return (
       <div class="card bg-base-100 shadow-xl">
         <figure>
@@ -16,7 +20,7 @@ const PartsCard = ({ part }) => {
                 <h5 className='font-semibold'>Minimum Order: {minimumOrder } pices</h5>
           <p>{description}</p>
           <div class="card-actions justify-center">
-            <button className="btn btn-outline ">Percease</button>
+            <button onClick={()=>handleToPercease(_id)} className="btn btn-outline ">Percease</button>
           </div>
         </div>
       </div>
