@@ -5,6 +5,8 @@ import Navber from './components/Home/Navber';
 import Blogs from './components/Page/Blogs/Blogs';
 import NotFound from './components/Page/NotFound/NotFound';
 import Portfolio from './components/Page/Portfolio/Portfolio';
+import Login from './components/Authentication/Login';
+import Signup from './components/Authentication/Signup';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/" element={<Home></Home>} />
         <Route path='/blogs' element={<Blogs></Blogs>}/>
         <Route path='/portfolio' element={<Portfolio></Portfolio>} />
+        <Route path='/login' element={<Login></Login>} />
+        <Route path='/signup' element={<Signup></Signup>}/>
         <Route path='*' element={ <NotFound></NotFound>}/>
       </Routes>
     </>
