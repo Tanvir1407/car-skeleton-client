@@ -7,6 +7,8 @@ import NotFound from './components/Page/NotFound/NotFound';
 import Portfolio from './components/Page/Portfolio/Portfolio';
 import Login from './components/Authentication/Login';
 import Signup from './components/Authentication/Signup';
+import Purchase from './components/Page/Purchase/Purchase';
+import RequireAuth from './components/Authentication/RequireAuth';
 
 function App() {
   return (
@@ -14,11 +16,19 @@ function App() {
       <Navber></Navber>
       <Routes>
         <Route path="/" element={<Home></Home>} />
-        <Route path='/blogs' element={<Blogs></Blogs>}/>
-        <Route path='/portfolio' element={<Portfolio></Portfolio>} />
-        <Route path='/login' element={<Login></Login>} />
-        <Route path='/signup' element={<Signup></Signup>}/>
-        <Route path='*' element={ <NotFound></NotFound>}/>
+        <Route path="/blogs" element={<Blogs></Blogs>} />
+        <Route path="/portfolio" element={<Portfolio></Portfolio>} />
+        <Route path="/login" element={<Login></Login>} />
+        <Route path="/signup" element={<Signup></Signup>} />
+        <Route
+          path="/purchase"
+          element={
+            <RequireAuth>
+              <Purchase></Purchase>
+            </RequireAuth>
+          }
+        />
+        <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
     </>
   );
