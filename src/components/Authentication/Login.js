@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import {
+  useAuthState,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -11,6 +12,19 @@ const LogIn = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  
+   const [googleUser] = useAuthState(auth);
+   const profileUpdate =
+     ({ name: googleUser?.displayName }, { email: googleUser?.email });
+
+   useEffect(() => {
+     fetch("http://localhost:5500/update", {
+       method: "POST",
+       headers: { "content-type": "application/json" },
+       body: JSON.stringify(profileUpdate),
+     });
+   }, []);
+   console.log(googleUser);
   const {
     register,
     handleSubmit,

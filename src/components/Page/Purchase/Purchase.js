@@ -7,14 +7,13 @@ const Purchase = () => {
     const { id } = useParams();
     const [parts, setParts] = useState([]);
     const [user] = useAuthState(auth);
-    console.log(user);
     useEffect(() => {
         fetch(`http://localhost:5500/parts/${id}`)
             .then(res => res.json())
             .then(data => setParts(data))
     }, []);
 
-     
+    
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -24,18 +23,25 @@ const Purchase = () => {
         const product = e.target.productName.value;
         const phone = e.target.phone.value;
         const address = e.target.address.value;
-
-        if (quantity > parts.quantity) {
-            
-            
-        }
-        else if (quantity < parts.minimumOrder) {
-            window.alert('hi')
-        }
-        else {
-            console.log(name,email,product,quantity,phone,address);
-
-        }
+      //   if (quantity > parts.quantity) {
+      //       window.alert('Your order quantity is over')
+      //   }
+      //   else if (quantity < parts.minimumOrder) {
+      //       window.alert('Your order limit is under the minimum order quantity')
+      //   }
+      //   else {
+         
+      // }
+       const purchaseData = { name, email, quantity, product, phone,address };
+       
+       fetch("http://localhost:5500/order", {
+         method: "POST",
+         headers: { "content-type": "application/json" },
+         body: JSON.stringify(purchaseData),
+       })
+         .then((res) => res.json())
+         .then((data) => console.log(data));
+      e.target.reset();
     }
     return (
       <div className=" border-2 m-2 grid grid-cols-1 md:grid-cols-2 p-12">
