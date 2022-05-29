@@ -9,7 +9,9 @@ const Dashboard = () => {
     <div class="drawer drawer-mobile">
       <input id="myDashboad" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content ">
-        <h1 className="text-center  py-4 font-bold text-3xl bg-slate-900 text-white">Hi { user.displayName}, Welcome to your Dashboard </h1>
+        <h1 className="text-center  py-4 font-bold text-3xl bg-slate-900 text-white">
+          Hi {user.displayName}, Welcome to your Dashboard{" "}
+        </h1>
         <Outlet></Outlet>
       </div>
       <div class="drawer-side">
@@ -23,6 +25,15 @@ const Dashboard = () => {
           </li>
           <li>
             <Link to="/dashboard/myprofile">My Profile</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/allorder">Manage all Orders</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/addproduct">Add a Product</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/manageProduct">Mange Product</Link>
           </li>
         </ul>
       </div>

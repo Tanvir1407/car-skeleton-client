@@ -9,35 +9,35 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-
 const Signup = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
   const [googleUser] = useAuthState(auth);
-  const profileUpdate = ({ name:googleUser?.displayName }, { email: googleUser?.email });
+  
+  const profileUpdate =
+    ({ name: googleUser?.displayName }, { email: googleUser?.email });
 
   useEffect(() => {
-    fetch("http://localhost:5500/update", {
-      method: "POST",
+    fetch(`http://localhost:5500/update/${googleUser?.email}`, {
+      method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(profileUpdate),
     });
-    },[googleUser])
-  console.log(googleUser);
+  }, [profileUpdate]);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  
+
   const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
-    const navigate = useNavigate();
-    const location = useLocation();
-  
-    let from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
 
   let signInError;
 
@@ -54,20 +54,19 @@ const Signup = () => {
 
   const onSubmit = async (data, e) => {
     await createUserWithEmailAndPassword(data.email, data.password);
-    updateProfile({ displayName: data.name }); 
+    updateProfile({ displayName: data.name });
 
-      const profileUpdate = ({ name: data.name }, { email: data.email });
-      fetch("http://localhost:5500/update", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(profileUpdate),
-      });
-    
+    const profileUpdate = ({ name: data.name }, { email: data.email });
+    const email = data.email;
+    fetch(`http://localhost:5500/update/${email}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(profileUpdate),
+    });
+    console.log(data.email);
     navigate(from, { replace: true });
     e.target.reset();
-    
   };
-
 
   return (
     <div className="flex justify-center items-center h-screen">

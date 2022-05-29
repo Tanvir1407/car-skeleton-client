@@ -18,13 +18,13 @@ const LogIn = () => {
      ({ name: googleUser?.displayName }, { email: googleUser?.email });
 
    useEffect(() => {
-     fetch("http://localhost:5500/update", {
-       method: "POST",
+     fetch(`http://localhost:5500/update/${googleUser?.email}`, {
+       method: "PUT",
        headers: { "content-type": "application/json" },
        body: JSON.stringify(profileUpdate),
      });
-   }, []);
-   console.log(googleUser);
+   }, [gUser]);
+  
   const {
     register,
     handleSubmit,

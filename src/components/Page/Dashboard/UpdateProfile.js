@@ -13,10 +13,11 @@ const UpdateProfile = () => {
        const address = e.target.address.value;
        const education = e.target.education.value;
        const linkedin = e.target.linkedin.value;
-       const img = e.target.image;
-       const profileUpdate = {img,name,email,phone,address,education,linkedin,
+         const img = e.target.image;
+         console.log(img);
+       const profileUpdate = {name,email,phone,address,education,linkedin,
        };
-       console.log(profileUpdate);
+       
           fetch(`http://localhost:5500/update/${id[0]._id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },

@@ -17,9 +17,7 @@ const Navber = () => {
       <li>
         <Link to="/appointment">product </Link>
       </li>
-      <li>
-        <Link to="/purchase">Purchase</Link>
-      </li>
+
       {user && (
         <li>
           <Link to="dashboard">Dashboard</Link>
@@ -40,7 +38,7 @@ const Navber = () => {
           </li>
           <li>
             <Link className="bg-green-400 text-white font-bold" to="/portfolio">
-              {user.displayName}{" "}
+              {user?.displayName}
             </Link>
           </li>
         </>
