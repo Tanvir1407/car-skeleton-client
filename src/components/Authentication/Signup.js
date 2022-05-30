@@ -15,16 +15,19 @@ const Signup = () => {
     useCreateUserWithEmailAndPassword(auth);
 
   const [googleUser] = useAuthState(auth);
-  
+
   const profileUpdate =
     ({ name: googleUser?.displayName }, { email: googleUser?.email });
 
   useEffect(() => {
-    fetch(`http://localhost:5500/update/${googleUser?.email}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(profileUpdate),
-    });
+    fetch(
+      `https://obscure-savannah-69297.herokuapp.com/update/${googleUser?.email}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(profileUpdate),
+      }
+    );
   }, [profileUpdate]);
 
   const {
@@ -42,7 +45,11 @@ const Signup = () => {
   let signInError;
 
   if (loading || gLoading || updating) {
-    return <button className="btn loading"></button>;
+    return (
+      <div className=" md:mt-60">
+        <div className="w-20 mx-auto text-3xl font-bold ">Loading...</div>
+      </div>
+    );
   }
   if (error || gError || updatingError) {
     signInError = (
@@ -58,7 +65,7 @@ const Signup = () => {
 
     const profileUpdate = ({ name: data.name }, { email: data.email });
     const email = data.email;
-    fetch(`http://localhost:5500/update/${email}`, {
+    fetch(`https://obscure-savannah-69297.herokuapp.com/update/${email}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(profileUpdate),

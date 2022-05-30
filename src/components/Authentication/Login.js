@@ -12,19 +12,22 @@ const LogIn = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  
-   const [googleUser] = useAuthState(auth);
-   const profileUpdate =
-     ({ name: googleUser?.displayName }, { email: googleUser?.email });
 
-   useEffect(() => {
-     fetch(`http://localhost:5500/update/${googleUser?.email}`, {
-       method: "PUT",
-       headers: { "content-type": "application/json" },
-       body: JSON.stringify(profileUpdate),
-     });
-   }, [gUser]);
-  
+  const [googleUser] = useAuthState(auth);
+  const profileUpdate =
+    ({ name: googleUser?.displayName }, { email: googleUser?.email });
+
+  useEffect(() => {
+    fetch(
+      `https://obscure-savannah-69297.herokuapp.com/update/${googleUser?.email}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(profileUpdate),
+      }
+    );
+  }, [gUser]);
+
   const {
     register,
     handleSubmit,

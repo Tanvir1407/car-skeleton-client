@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ManageCard from "./ManageCard";
 const ManageProduct = () => {
-    
   const [parts, setParts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5500/parts")
+    fetch("https://obscure-savannah-69297.herokuapp.com/parts")
       .then((res) => res.json())
       .then((data) => setParts(data));
   }, []);
