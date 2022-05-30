@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Purchase = () => {
   const { id } = useParams();
   const [parts, setParts] = useState([]);
@@ -21,15 +22,13 @@ const Purchase = () => {
     const product = e.target.productName.value;
     const phone = e.target.phone.value;
     const address = e.target.address.value;
-    //   if (quantity > parts.quantity) {
-    //       window.alert('Your order quantity is over')
-    //   }
-    //   else if (quantity < parts.minimumOrder) {
-    //       window.alert('Your order limit is under the minimum order quantity')
-    //   }
-    //   else {
-
-    // }
+      if (quantity > parts.quantity) {
+          window.alert('Your order quantity is over')
+      }
+      else if (quantity < parts.minimumOrder) {
+          window.alert('Your order limit is under the minimum order quantity')
+      }
+      else {
     const purchaseData = { name, email, quantity, product, phone, address };
 
     fetch("https://obscure-savannah-69297.herokuapp.com/order", {
@@ -38,7 +37,15 @@ const Purchase = () => {
       body: JSON.stringify(purchaseData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.result.acknowledged) {
+          toast.success('Successfully order place')
+        } else {
+          toast.warn("Order Place Failed")
+        }
+      });
+    }
+
     e.target.reset();
   };
   return (
@@ -146,6 +153,7 @@ const Purchase = () => {
           </div>
         </form>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

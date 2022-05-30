@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+
 import './App.css';
 import Home from './components/Home/Home';
 import Navber from './components/Home/Navber';
@@ -16,8 +17,11 @@ import MyProfile from './components/Page/Dashboard/MyProfile';
 import AddProduct from './components/Page/Dashboard/AddProduct';
 import ManageAllOrder from './components/Page/Dashboard/ManageAllOrder';
 import ManageProduct from './components/Page/Dashboard/ManageProduct';
+import ResetPassword from './components/Authentication/ResetPassword';
+import AllUsers from './components/Page/Dashboard/AllUsers';
 
 function App() {
+  
   return (
     <>
       <Navber></Navber>
@@ -27,6 +31,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio></Portfolio>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signup" element={<Signup></Signup>} />
+        <Route path='reset' element={<ResetPassword></ResetPassword>}/>
         <Route
           path="/purchase/:id"
           element={
@@ -43,15 +48,20 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrders></MyOrders> }/>
-          <Route path='review' element={<AddReview></AddReview>} /> 
-          <Route path='myprofile' element={<MyProfile></MyProfile>} />
-          <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
-          <Route path='allorder' element={<ManageAllOrder></ManageAllOrder>} />
-          <Route path='manageProduct' element={<ManageProduct></ManageProduct>}/>
+          <Route index element={<MyOrders></MyOrders>} />
+          <Route path="review" element={<AddReview></AddReview>} />
+          <Route path="myprofile" element={<MyProfile></MyProfile>} />
+          <Route path="allusers" element={<AllUsers></AllUsers>} />
+          <Route path="addproduct" element={<AddProduct></AddProduct>}></Route>
+          <Route path="allorder" element={<ManageAllOrder></ManageAllOrder>} />
+          <Route
+            path="manageProduct"
+            element={<ManageProduct></ManageProduct>}
+          />
         </Route>
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
+      
     </>
   );
 }

@@ -14,7 +14,7 @@ const OrderList = ({ order }) => {
         <div class="flex items-center space-x-3">
           <div>
             <div class="font-bold">{order.product}</div>
-            <div class="text-sm opacity-50">United States</div>
+            
           </div>
         </div>
       </td>
@@ -25,7 +25,7 @@ const OrderList = ({ order }) => {
       <td>{order.quantity}</td>
       <th>
         <button
-          class="btn btn-ghost btn-md"
+          class="btn btn-ghost text-red-500 btn-md"
           onClick={() => handleOrderDelete(order._id)}
         >
           Delete

@@ -2,25 +2,20 @@ import React from 'react';
 
 const Offer = () => {
     return (
-      <div>
-        <div class="card w-full bg-base-100 shadow-xl image-full">
-          <figure>
+      <div >
+        <div class="hero min-h-screen bg-base-200">
+          <div class="hero-content  flex-col lg:flex-row">
             <img
-              src="https://i.ibb.co/kSnVw6d/2103-i511-026-S-m009-c12-taxi-passenger-flat-min.jpg"
-              alt="Shoes"
+              src="https://cdn.wedevs.com/uploads/2017/11/dokan-multivendor-shipping-packages-features.png"
+              class="max-w-sm rounded-lg shadow-2xl"
             />
-          </figure>
-          <div class="card-body items-center text-center ">
-            <h2 class="card-title text-3xl">Welcome to you </h2>
-            <p>
-              Visit the Automotive Hall of Fame, where you can celebrate the men
-              and women whose automotive innovations changed the world and
-              revolutionized our way of life. Located at 21400 Oakwood Blvd.,
-              Dearborn, Michigan, it sits across the parking lot from The Henry
-              Ford. Inside the Automotive Hall of Fame you will discover the
-              intersection with cars and all aspects of our daily lives.
-            </p>
-            <div class="card-actions justify-center"></div>
+            <div className='w-2/4'>
+              <h1 class="text-4xl font-bold">Delivery with in 24 hour </h1>
+              <p class="py-6">
+                We deliver any product whitin our state a maximum of 24 hours
+              </p>
+              <button class="btn btn-primary">Learn More</button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+
 import {
   useAuthState,
   useSignInWithEmailAndPassword,
@@ -63,7 +64,9 @@ const LogIn = () => {
     signInWithEmailAndPassword(data.email, data.password);
     e.target.reset();
   };
-
+  const handleReset = () => {
+    console.log('reset')
+  }
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -133,6 +136,11 @@ const LogIn = () => {
               </label>
             </div>
             {signInError}
+            <p className="py-2 cursor-pointer">
+              Forget password?{" "}
+              <Link to='/reset' className="text-secondary">reset password </Link>
+            </p>
+
             <input
               className="btn w-full max-w-xs text-white"
               type="submit"

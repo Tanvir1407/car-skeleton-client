@@ -6,13 +6,13 @@ const Banner = () => {
         <div class="carousel w-full">
           <div id="item1" class="carousel-item w-full">
             <img
-              src="https://i.ibb.co/5Y15tDC/crashed-auto-in-repair-workshop-colorful-banner-vector-21402017-800x200.jpg"
+              src="https://i.ibb.co/Rj75vvM/car-joy-smiling-spanner-occupation-800x200.jpg"
               class="w-full"
             />
           </div>
           <div id="item2" class="carousel-item w-full">
             <img
-              src="https://i.ibb.co/Rj75vvM/car-joy-smiling-spanner-occupation-800x200.jpg"
+              src="https://i.ibb.co/5Y15tDC/crashed-auto-in-repair-workshop-colorful-banner-vector-21402017-800x200.jpg"
               class="w-full"
             />
           </div>
